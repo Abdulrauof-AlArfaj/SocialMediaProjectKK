@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/white"
+            android:background="@drawable/layout_style2"
             >
 
             <EditText
@@ -61,14 +61,26 @@
             android:layout_width="match_parent"
             android:layout_height="340dp"
             android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@drawable/layout_style2">
 
-            <EditText
-                android:id="@+id/postEt"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Write your post here"
-                android:layout_margin="20dp" />
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/postEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:hint="Write your post here" />
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
 
     </LinearLayout>
