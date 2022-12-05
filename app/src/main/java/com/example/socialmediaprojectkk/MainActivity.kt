@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                Log.d("response", "OnFailure: ${t.message}")
+                Log.d("response", "OnFailurre: ${t.message}")
             }
 
         })
