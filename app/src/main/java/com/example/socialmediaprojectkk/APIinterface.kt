@@ -13,25 +13,25 @@ interface APIinterface {
     @POST("users/")
     fun addUser(@Body userItem: UserItem) : Call<UserItem>
 
-    @POST("users/")
+    @POST("users/{api_key}")
     fun updateUser(@Path("api_key") api_key: String, @Body userItem: UserItem) : Call<UserItem>
 
-    @GET("login/")
+    @GET("login/{username}/{password}")
     fun loginUser(@Path("username") userName: String, @Path("password") password: String) : Call<UserItem>
 
-    @GET("users/")
+    @GET("users/{api_key}")
     fun getUserData(@Path("api_key") api_key: String) :Call<UserItem>
 
     @GET("posts/")
-     fun getPosts(): Call<Post>
-
-     @GET("posts/{id}")
-     fun getPost(@Path("id") id : Int): Call<PostItem>
+    fun getPosts() : Call<Post>
 
     @POST("posts/")
-    fun AddPosts(@Body PostInfo: PostItem): Call<PostItem>
+    fun addPost(@Body postItem: PostItem) : Call<PostItem>
 
-    @POST("posts/")
+    @GET("posts/{id}")
+    fun getPostDetails(@Path("id") id: Int) : Call<PostItem>
+
+    @POST("posts/{id}")
     fun updatePost(@Path("id") id: Int, @Body postItem: PostItem) : Call<PostItem>
 
 
