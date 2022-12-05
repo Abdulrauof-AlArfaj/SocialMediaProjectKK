@@ -29,7 +29,7 @@ class DetailsActivity : AppCompatActivity() {
         if(primaryKey != -1){
             var apiInterface= APIClient().getClinet()?.create(APIinterface::class.java)
             //Get Items from API
-            apiInterface!!.getPost(primaryKey).enqueue(object : Callback<PostItem> {
+            apiInterface!!.getPostDetails(primaryKey).enqueue(object : Callback<PostItem> {
                 override fun onResponse(call: Call<PostItem>, response: Response<PostItem>) {
                     var  posts= response.body()!!
                     binding.apply {

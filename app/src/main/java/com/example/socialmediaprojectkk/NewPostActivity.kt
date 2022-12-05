@@ -38,7 +38,7 @@ class NewPostActivity : AppCompatActivity() {
                 var apiClient = APIClient().getClinet()
                 if (apiClient != null) {
                     var apiInterface = apiClient?.create(APIinterface::class.java)
-                    apiInterface!!.AddPosts(postItems)?.enqueue(object :
+                    apiInterface!!.addPost(postItems)?.enqueue(object :
                         Callback<PostItem> {
                         override fun onResponse(
                             call: Call<PostItem>,
