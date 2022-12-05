@@ -1,5 +1,6 @@
 package com.example.socialmediaprojectkk
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
+    lateinit var context:Context
     var postAdapter = PostsAdapter(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.postsRv.adapter = postAdapter
+        context=this@MainActivity
 
         var apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)
 
@@ -45,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             addPostBtn.setOnClickListener {
                 var addpostIntent = Intent(this@MainActivity, NewPostActivity::class.java)
                 startActivity(addpostIntent)
+            }
+            sinInBtn.setOnClickListener {
+                var intent= Intent(context,LoginActivity::class.java)
+                context.startActivity(intent)
             }
         }
     }

@@ -30,7 +30,7 @@
 
         <LinearLayout
             android:id="@+id/nameLay"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -43,6 +43,17 @@
                 android:layout_height="wrap_content"
                 android:hint="Write your name here"
                 android:layout_margin="20dp"
+                />
+            <TextView
+                android:id="@+id/nameConstrain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/red"
+                android:layout_margin="3dp"
+                android:visibility="invisible"
                 />
         </LinearLayout>
 
@@ -58,7 +69,7 @@
 
         <LinearLayout
             android:id="@+id/emailLay"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -70,7 +81,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Write your email here"
-                android:layout_margin="20dp" />
+                android:layout_margin="10dp" />
+            <TextView
+                android:id="@+id/emailConstrain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/red"
+                android:layout_margin="3dp"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <TextView
@@ -85,19 +105,30 @@
 
         <LinearLayout
             android:id="@+id/passLay"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="133dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/layout_style2"
-            >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/passEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:hint="Write your password here"
-                android:layout_margin="20dp"/>
+                android:password="true" />
+
+            <TextView
+                android:id="@+id/passwordConstrain"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </LinearLayout>
 
     </LinearLayout>

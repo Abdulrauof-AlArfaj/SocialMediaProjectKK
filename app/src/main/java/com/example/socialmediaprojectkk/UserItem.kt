@@ -7,5 +7,6 @@ data class UserItem(
     val id: Int,
     val image: String,
     val username: String,
-    val website: String
+    val website: String,
+    val userPassWord: String
 )
