@@ -1,6 +1,7 @@
-package com.example.socialmediaproject
+package com.example.socialmediaprojectkk.Adapters
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.socialmediaprojectkk.Data.PostItem
 
 class PostDiffUtill: DiffUtil.ItemCallback<PostItem>() {
     override fun areItemsTheSame(oldItem: PostItem, newItem: PostItem): Boolean {

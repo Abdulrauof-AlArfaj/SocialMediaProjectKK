@@ -1,4 +1,4 @@
-package com.example.socialmediaproject
+package com.example.socialmediaprojectkk.Data
 
 
 import com.google.gson.annotations.SerializedName

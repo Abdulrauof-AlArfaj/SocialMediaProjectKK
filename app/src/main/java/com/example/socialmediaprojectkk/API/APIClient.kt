@@ -1,4 +1,4 @@
-package com.example.socialmediaproject
+package com.example.socialmediaprojectkk.API
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

@@ -3,16 +3,16 @@ package com.example.socialmediaprojectkk
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.socialmediaproject.APIClient
-import com.example.socialmediaproject.APIinterface
+import com.example.socialmediaprojectkk.API.APIClient
+import com.example.socialmediaprojectkk.API.APIinterface
+import com.example.socialmediaprojectkk.Data.User
+import com.example.socialmediaprojectkk.Data.UserItem
 import com.example.socialmediaprojectkk.databinding.ActivityLoginBinding
 import kotlinx.coroutines.*
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -5,11 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import com.example.socialmediaproject.APIClient
-import com.example.socialmediaproject.APIinterface
-import com.example.socialmediaproject.Post
-import com.example.socialmediaproject.PostsAdapter
+import com.example.socialmediaprojectkk.API.APIClient
+import com.example.socialmediaprojectkk.API.APIinterface
+import com.example.socialmediaprojectkk.Data.Post
+import com.example.socialmediaprojectkk.Adapters.PostsAdapter
 import com.example.socialmediaprojectkk.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback

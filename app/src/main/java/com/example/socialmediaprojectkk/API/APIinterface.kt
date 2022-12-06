@@ -1,7 +1,9 @@
-package com.example.socialmediaproject
+package com.example.socialmediaprojectkk.API
 
-import com.example.socialmediaprojectkk.User
-import com.example.socialmediaprojectkk.UserItem
+import com.example.socialmediaprojectkk.Data.Post
+import com.example.socialmediaprojectkk.Data.PostItem
+import com.example.socialmediaprojectkk.Data.User
+import com.example.socialmediaprojectkk.Data.UserItem
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -32,7 +34,7 @@ interface APIinterface {
     @GET("posts/{id}")
     fun getPostDetails(@Path("id") id: Int) : Call<PostItem>
 
-    @POST("posts/{id}")
+    @PUT("posts/{id}")
     fun updatePost(@Path("id") id: Int, @Body postItem: PostItem) : Call<PostItem>
 
 

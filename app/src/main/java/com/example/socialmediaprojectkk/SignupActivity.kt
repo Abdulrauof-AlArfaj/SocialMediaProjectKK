@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.example.socialmediaproject.APIClient
-import com.example.socialmediaproject.APIinterface
+import com.example.socialmediaprojectkk.API.APIClient
+import com.example.socialmediaprojectkk.API.APIinterface
+import com.example.socialmediaprojectkk.Data.User
+import com.example.socialmediaprojectkk.Data.UserItem
 import com.example.socialmediaprojectkk.databinding.ActivitySignupBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,7 +99,8 @@ class SignupActivity : AppCompatActivity() {
                         var currentTime = LocalDateTime.now()
 
 
-                        var newUser=UserItem("",currentTime.toString(),email,0,"",name,"",userPassWord)
+                        var newUser=
+                            UserItem("",currentTime.toString(),email,0,"",name,"",userPassWord)
 
                         apiInterface?.addUser(newUser)?.enqueue(object :
                             Callback<UserItem> {

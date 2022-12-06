@@ -1,4 +1,4 @@
-package com.example.socialmediaprojectkk
+package com.example.socialmediaprojectkk.Data
 
 data class UserItem(
     val about: String,
