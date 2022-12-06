@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textAlignment="center" />
 
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Write your name here"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 />
             <TextView
                 android:id="@+id/nameConstrain"
@@ -62,8 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:layout_marginTop="20dp"
-            android:textSize="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textAlignment="center"/>
 
@@ -98,8 +98,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:textSize="30dp"
-            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textAlignment="center" />
 
@@ -115,7 +115,7 @@
                 android:id="@+id/passEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:hint="Write your password here"
                 android:password="true" />
 
@@ -131,6 +131,34 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/passConfTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:id="@+id/passConfLay"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/layout_style2"
+            >
+
+            <EditText
+                android:id="@+id/passConfEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Write your password here"
+                android:layout_margin="10dp"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     <Button
