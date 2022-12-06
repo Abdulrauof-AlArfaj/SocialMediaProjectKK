@@ -1,5 +1,7 @@
 package com.example.socialmediaprojectkk
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +21,7 @@ class SignupActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignupBinding
     lateinit var users:ArrayList<UserItem>
+    lateinit var context: Context
     val EMAIL_ADDRESS_PATTERN: Pattern = Pattern.compile("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
             "\\@" +
             "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
@@ -55,6 +58,7 @@ class SignupActivity : AppCompatActivity() {
 
                 var name= nameEt.text.toString()
                 var userPassWord=passEt.text.toString()
+                var confirmPassword=passConfEt.text.toString()
                 var email=emailEt.text.toString()
                 //Checking constraints:
 
@@ -87,7 +91,7 @@ class SignupActivity : AppCompatActivity() {
                 //--------------------------------------------------------------
                 //Check if the password valid or not
                 //--------------------------------------------------------------
-                    validPassword=checkPassword(userPassWord)
+                    validPassword=checkPassword(userPassWord)&&match(userPassWord,confirmPassword)
                 //Check if all data are valid, then we can add the new user
                     if (validName&&validEmail&&validPassword){
                         var currentTime = LocalDateTime.now()
@@ -97,13 +101,12 @@ class SignupActivity : AppCompatActivity() {
 
                         apiInterface?.addUser(newUser)?.enqueue(object :
                             Callback<UserItem> {
-                            override fun onResponse(
-                                call: Call<UserItem>,
-                                response: Response<UserItem>
-                            ) {
+                            override fun onResponse(call: Call<UserItem>, response: Response<UserItem>) {
 
                                 Toast.makeText(this@SignupActivity, "The user added successfully", Toast.LENGTH_SHORT).show()
                                 recreate()
+                                var intent= Intent(context,LoginActivity::class.java)
+                                context.startActivity(intent)
                             }
 
                             override fun onFailure(call: Call<UserItem>, t: Throwable) {
@@ -176,7 +179,7 @@ class SignupActivity : AppCompatActivity() {
     }//End of checkEmailConstrain
 
     fun checkPassword(password: String):Boolean{
-        if(hasUpper(password)&&hasLower(password)&&(hasNumber(password)&&hasSpecial(password))){
+        if(hasUpper(password)&&hasLower(password)&&(hasNumber(password))){
             binding.apply {
                 passwordConstrain.visibility= View.INVISIBLE
             }
@@ -186,7 +189,7 @@ class SignupActivity : AppCompatActivity() {
 //                Toast.LENGTH_LONG).show()
 
             binding.apply {
-                passwordConstrain.text="The password must includes Uppercase litter, Lowercase litter, number, and special character"
+                passwordConstrain.text="The password must includes Uppercase litter, Lowercase litter, number"
                 passwordConstrain.visibility= View.VISIBLE
                 passwordConstrain.setTextColor(Color.RED)
             }
@@ -226,14 +229,25 @@ class SignupActivity : AppCompatActivity() {
         return false
     }
 
-    private fun hasSpecial(text: String): Boolean{
-        val specialCharacters = "!@#$%"
-        for(special in specialCharacters){
-            if(text.contains(special)){
-                return true
+    fun match(password: String,password2: String):Boolean
+    {
+        if(password==password2){
+            binding.apply {
+                passConfEt.setTextColor(Color.BLACK)
+            }
+            return true
+
+        }
+        else
+        {
+            Toast.makeText(this@SignupActivity,"The password must match its confirm",Toast.LENGTH_SHORT).show()
+            binding.apply {
+                passConfEt.setTextColor(Color.RED)
             }
         }
-        return false
+            return false
     }
+
+
 
 }

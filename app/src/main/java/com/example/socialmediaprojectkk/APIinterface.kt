@@ -16,8 +16,9 @@ interface APIinterface {
     @POST("users/{api_key}")
     fun updateUser(@Path("api_key") api_key: String, @Body userItem: UserItem) : Call<UserItem>
 
+
     @GET("login/{username}/{password}")
-    fun loginUser(@Path("username") userName: String, @Path("password") password: String) : Call<UserItem>
+    fun loginUser(@Path("username") userName: String, @Path("password") password: String) : Call<String>
 
     @GET("users/{api_key}")
     fun getUserData(@Path("api_key") api_key: String) :Call<UserItem>

@@ -8,5 +8,5 @@ data class UserItem(
     val image: String,
     val username: String,
     val website: String,
-    val userPassWord: String
+    val password: String
 )

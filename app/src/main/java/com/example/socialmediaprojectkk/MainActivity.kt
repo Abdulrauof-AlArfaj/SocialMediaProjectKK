@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.socialmediaproject.APIClient
 import com.example.socialmediaproject.APIinterface
 import com.example.socialmediaproject.Post
@@ -13,10 +14,11 @@ import com.example.socialmediaprojectkk.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//----------------------------------------------------------------------
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
     lateinit var context:Context
+    var ApiKey=""
     var postAdapter = PostsAdapter(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.postsRv.adapter = postAdapter
         context=this@MainActivity
+        //Get API_Key:
+        ApiKey= intent.getStringExtra("API_Key").toString()
+        //==========================================================
 
         var apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)
 
@@ -37,12 +42,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                Log.d("response", "OnFailurre: ${t.message}")
+                Log.d("response", "OnFailure: ${t.message}")
             }
 
         })
-
-
 
         binding.apply {
             addPostBtn.setOnClickListener {
