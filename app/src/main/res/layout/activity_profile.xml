@@ -20,7 +20,7 @@
         android:background="@drawable/layout_style"
         android:padding="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barLay"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/btnLay"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -59,21 +59,17 @@
                 <LinearLayout
                     android:id="@+id/nameLay"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/layout_style2"
                     android:orientation="vertical">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/nameEt"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_margin="9dp"
-                        android:padding="5dp"
-                        android:gravity="center"
-                        android:background="@drawable/frame_style"
-                        android:textAlignment="center"
-                        android:text="Write your name here"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="Write your name here"
                         />
                 </LinearLayout>
 
@@ -90,24 +86,48 @@
                 <LinearLayout
                     android:id="@+id/emailLay"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/layout_style2"
                     android:orientation="vertical">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/emailEt"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_margin="9dp"
-                        android:padding="5dp"
-                        android:gravity="center"
-                        android:background="@drawable/frame_style"
-                        android:textAlignment="center"
-                        android:text="Write your email here"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="Write your email here"
+
+                        android:inputType="textEmailAddress"
                         />
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/passTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PASSWORD"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/passLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/layout_style2"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/passEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="Write your password here"
+                        />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/webTv"
@@ -122,20 +142,17 @@
                 <LinearLayout
                     android:id="@+id/webLay"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:background="@drawable/layout_style2"
                     android:orientation="vertical">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/webEt"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_margin="9dp"
-                        android:padding="5dp"
-                        android:gravity="center"
-                        android:background="@drawable/frame_style"
-                        android:textAlignment="center"
-                        android:text="Write your website here"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="Write your website here"
                         />
 
                 </LinearLayout>
@@ -153,7 +170,7 @@
                 <LinearLayout
                     android:id="@+id/aboutLay"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/layout_style2"
                     android:orientation="vertical">
@@ -167,16 +184,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical" >
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/aboutEt"
                                 android:layout_width="match_parent"
-                                android:layout_height="75dp"
+                                android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
-                                android:padding="5dp"
-                                android:gravity="center"
-                                android:background="@drawable/frame_style"
-                                android:textAlignment="center"
-                                android:text="Write about your self here"
+                                android:hint="Write about your self here"
                                 />
                         </LinearLayout>
                     </ScrollView>
@@ -186,34 +199,38 @@
         </ScrollView>
     </LinearLayout>
 
-
-
     <LinearLayout
-        android:id="@+id/barLay"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/gray"
-        android:gravity="center"
+        android:id="@+id/btnLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="2"
-            android:text="My Profile"
-            android:textColor="@color/white"
-            android:textSize="25dp" />
-        <ImageView
-            android:id="@+id/homeBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            app:srcCompat="@drawable/home_icon" />
+            android:onClick="onClick"
+            android:text="BACK"
+            android:layout_marginEnd="15dp"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:text="UPDATE"
+            android:layout_marginStart="15dp"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
