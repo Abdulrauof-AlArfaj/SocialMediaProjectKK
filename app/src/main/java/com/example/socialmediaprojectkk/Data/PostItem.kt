@@ -11,7 +11,7 @@ data class PostItem(
     @SerializedName("id")
     val id: Int, // 1
     @SerializedName("likes")
-    val likes: String, // Almin, Tina, Zoe,omar
+    var likes: String, // Almin, Tina, Zoe,omar
     @SerializedName("text")
     val text: String, // Talk about the metaverse seems to be everywhere these days. Major news networks have been doing stories on it, and I see a new article every day. We've even had movies about it, and there are books that predicted it long before we had the technology...I can't help but get excited about the possibilities, but then there is always that dystopian version of it that makes me rethink my stance.How do you guys picture it all working out? What is your vision of the metaverse?
     @SerializedName("title")

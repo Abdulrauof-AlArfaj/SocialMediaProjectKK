@@ -1,5 +1,6 @@
 package com.example.socialmediaprojectkk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,23 +17,29 @@ import retrofit2.Response
 class DetailsActivity : AppCompatActivity() {
     lateinit var binding:ActivityDetailsBinding
 
-    private lateinit var commentList: List<String>
-
     private lateinit var commentsAdapter: CommentsAdapter
+
+    private lateinit var commentList: List<String>//split comments
+    private lateinit var likeList: List<String>//split likes
+    lateinit var likesList:ArrayList<String>//trim likes
 
     lateinit var posts:PostItem
     private var primaryKey=0
     //Set username
-    private var username:String?=null
+    private var username="eman"
 
     private val apiInterface by lazy { APIClient().getClinet()?.create(APIinterface::class.java) }
 
+    /*<!--------------------------------------------------------------------------------------------------!>*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         commentList= listOf()
+        likeList= listOf()
+        likesList= arrayListOf()
 
         commentsAdapter= CommentsAdapter()
         binding.commentsRv.adapter=commentsAdapter
@@ -56,19 +63,52 @@ class DetailsActivity : AppCompatActivity() {
         binding.apply {
 
             likeBtn.setOnClickListener {
-                   var like = username
-                   if(posts.likes.isNotEmpty()){
-                      like = posts.likes+", $username"
-                   }else{
+                //List to split likes name
+                likeList = posts.likes.trim().split(",")
 
-                   }
-                  updatePost(PostItem(posts.comments,posts.id,like!!,posts.text,posts.title,posts.user), true)
+                //CLEAR ARRAY AND ADD THE NEW USERS NAMES THAT LIKED THE POST
+                likesList.clear()
+                likesList.addAll(likeList)
 
+                Log.d("LikesList", "Remove: $likesList")
+                if (likesList.contains(username)) {
+                    //remove user from list
+                    likesList.remove(username)
+                    //convert Array elements to string
+                    var likes = likesList.joinToString(",")
+                    posts.likes = likes
+                    binding.likeBtn.setImageResource(R.drawable.like1)
+                    Toast.makeText(this@DetailsActivity, "Post Unliked", Toast.LENGTH_SHORT).show()
+                    updatePost(posts, false)
+                } else {
+                    var like = username
+                    if (posts.likes.isNotEmpty()) {
+                        like = posts.likes + ",$username"
+                    }
+                    updatePost(
+                        PostItem(
+                            posts.comments,
+                            posts.id,
+                            like!!,
+                            posts.text,
+                            posts.title,
+                            posts.user
+                        ), true
+                    )
                 }
-
+            }
+            homeBtn.setOnClickListener {
+                var MainIntent= Intent(this@DetailsActivity,MainActivity::class.java)
+                startActivity(MainIntent)
+                finish()
+            }
         }
-
     }
+    /*<!--------------------------------------------------------------------------------------------------!>*/
+
+
+
+    //Get Content of the Post
     private fun getPost(pk:Int){
         if(pk != -1){
             //Get Items from API
@@ -92,6 +132,7 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
+    //Calculate the size of comment split list
     private fun CommentHandle(comments: String): Int {
         if(comments.isNotEmpty()){
             commentList = comments.split(",")
@@ -106,7 +147,7 @@ class DetailsActivity : AppCompatActivity() {
         }
         return 0
     }
-
+    //Calculate the size of likes split list
     private fun LikesHandle(likes: String): Int {
         if(likes.isNotEmpty()) {
             return likes.split(",").size
@@ -114,26 +155,23 @@ class DetailsActivity : AppCompatActivity() {
         return 0
     }
 
-
-
-
-
+    //Update Post either comment or like
     private fun updatePost(post: PostItem, like: Boolean){
         apiInterface?.updatePost(post.id,post)!!.enqueue(object: Callback<PostItem> {
             override fun onResponse(call: Call<PostItem>, response: Response<PostItem>) {
                 Log.d("MAIN", "Response: $response")
             }
             override fun onFailure(call: Call<PostItem>, t: Throwable) {
-                Toast.makeText(this@DetailsActivity, "Something went wrong", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@DetailsActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
                 Log.d("Post Details", "onFailure: ${t.message} ")
             }
         })
         if(like){
             binding.likeBtn.setImageResource(R.drawable.like)
-            Toast.makeText(this, "Post liked", Toast.LENGTH_LONG).show()
-        }else{
+            Toast.makeText(this, "Post liked", Toast.LENGTH_SHORT).show()
+        }else if(binding.commentEt.text.isNotEmpty()){
             binding.commentEt.text.clear()
-            Toast.makeText(this, "Comment added", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Comment added", Toast.LENGTH_SHORT).show()
         }
         getPost(post.id)
     }
