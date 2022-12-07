@@ -62,12 +62,15 @@ class SignupActivity : AppCompatActivity() {
                 var userPassWord=passEt.text.toString()
                 var confirmPassword=passConfEt.text.toString()
                 var email=emailEt.text.toString()
+                var web=webEt.text.toString()
+                var about=aboutEt.text.toString()
+                var imageUrl=imageUrlEt.text.toString()
                 //Checking constraints:
 
                 //Empty constrain:
                 if (name=="" ||userPassWord==""||email=="")
                 {
-                    Toast.makeText(this@SignupActivity,"Please fill all fields",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignupActivity,"Please enter user name, email, and password fields",Toast.LENGTH_SHORT).show()
                      validName=false
                      validEmail=false
                      validPassword=false
@@ -100,7 +103,7 @@ class SignupActivity : AppCompatActivity() {
 
 
                         var newUser=
-                            UserItem("",currentTime.toString(),email,0,"",name,"",userPassWord)
+                            UserItem(about,currentTime.toString(),email,0,imageUrl.toString(),name,web,userPassWord)
 
                         apiInterface?.addUser(newUser)?.enqueue(object :
                             Callback<UserItem> {
@@ -205,7 +208,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun hasUpper(text: String): Boolean{
         for (i in 0..text.length-1){
-            if (text[i]==text[i].toUpperCase())
+            if (text[i].isUpperCase())
             {
                 return true
             }
@@ -215,7 +218,7 @@ class SignupActivity : AppCompatActivity() {
 
     private fun hasLower(text: String): Boolean{
         for (i in 0..text.length-1){
-            if (text[i]==text[i].toUpperCase())
+            if (text[i].isLowerCase())
             {
                 return true
             }

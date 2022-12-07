@@ -37,13 +37,13 @@
                 android:id="@+id/commentTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8 comments - " />
+                android:text="comments - " />
 
             <TextView
                 android:id="@+id/likesTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12 Likes" />
+                android:text="Likes" />
         </LinearLayout>
 
         <TextView

@@ -73,7 +73,7 @@
                         android:gravity="center"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
-                        android:text="Write your name here"
+                        android:text=""
                         />
                 </LinearLayout>
 
@@ -104,7 +104,7 @@
                         android:gravity="center"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
-                        android:text="Write your email here"
+                        android:text=""
                         />
                 </LinearLayout>
 
@@ -135,7 +135,7 @@
                         android:gravity="center"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
-                        android:text="Write your website here"
+                        android:text=""
                         />
 
                 </LinearLayout>
@@ -176,7 +176,7 @@
                                 android:gravity="center"
                                 android:background="@drawable/frame_style"
                                 android:textAlignment="center"
-                                android:text="Write about your self here"
+                                android:text=""
                                 />
                         </LinearLayout>
                     </ScrollView>

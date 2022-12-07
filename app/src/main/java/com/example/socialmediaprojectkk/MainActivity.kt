@@ -10,6 +10,7 @@ import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
 import com.example.socialmediaprojectkk.Data.Post
 import com.example.socialmediaprojectkk.Adapters.PostsAdapter
+import com.example.socialmediaprojectkk.Data.UserKey
 import com.example.socialmediaprojectkk.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         binding.postsRv.adapter = postAdapter
         context=this@MainActivity
         //Get API_Key:
+
         ApiKey= intent.getStringExtra("API_Key").toString()
+        UserKey.API.publickApiKey=ApiKey
         //==========================================================
 
         var apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)
@@ -49,8 +52,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             addPostBtn.setOnClickListener {
-                var addpostIntent = Intent(this@MainActivity, NewPostActivity::class.java)
-                startActivity(addpostIntent)
+                var addPostIntent = Intent(this@MainActivity, NewPostActivity::class.java)
+                addPostIntent.putExtra("API_Key",ApiKey)
+                startActivity(addPostIntent)
             }
             sinInBtn.setOnClickListener {
                 if (sinInBtn.text.toString()=="Sign in/up"){
@@ -58,6 +62,7 @@ class MainActivity : AppCompatActivity() {
                     context.startActivity(intent)}
                 else{
                     ApiKey=""
+                    UserKey.API.publickApiKey=ApiKey
                     sinInBtn.setText("Sign in/up")
                     addPostBtn.visibility=View.INVISIBLE
                     goToProfile.visibility=View.INVISIBLE
@@ -71,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         }//End of binding
         if (ApiKey.length>20){//so the API key is available and user log in
             binding.apply {
+                UserKey.API.publickApiKey=ApiKey
                 sinInBtn.setText("Sign Out")
                 addPostBtn.visibility=View.VISIBLE
                 goToProfile.visibility=View.VISIBLE

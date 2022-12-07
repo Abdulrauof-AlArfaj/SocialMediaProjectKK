@@ -34,7 +34,7 @@
             android:id="@+id/nameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/name"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -54,7 +54,6 @@
                 android:id="@+id/nameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write your name here"
                 android:layout_margin="10dp"
                 />
 
@@ -76,7 +75,7 @@
             android:id="@+id/emailTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -96,7 +95,6 @@
                 android:id="@+id/emailEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write your email here"
                 android:layout_margin="10dp"
                 android:inputType="textEmailAddress"
                 />
@@ -133,7 +131,6 @@
                         android:id="@+id/imageUrlEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Write your Image Url here"
                         android:layout_margin="10dp"
                         />
 
@@ -161,7 +158,6 @@
                         android:id="@+id/webEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Write your Image Url here"
                         android:layout_margin="10dp" />
 
                 </LinearLayout>
@@ -198,7 +194,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
-                                android:hint="Write about your self here"
                                 />
                         </LinearLayout>
                     </ScrollView>
@@ -208,7 +203,7 @@
             android:id="@+id/passTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textSize="20sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="10dp"
@@ -228,7 +223,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Write your password here"
                 android:password="true" />
 
             <TextView
@@ -267,7 +261,6 @@
                 android:id="@+id/passConfEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write your password here"
                 android:layout_margin="10dp"
                 android:inputType="textPassword"
                 />

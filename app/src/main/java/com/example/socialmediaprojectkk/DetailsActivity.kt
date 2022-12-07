@@ -1,14 +1,18 @@
 package com.example.socialmediaprojectkk
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
 import com.example.socialmediaprojectkk.Adapters.CommentsAdapter
 import com.example.socialmediaprojectkk.Data.PostItem
+import com.example.socialmediaprojectkk.Data.UserItem
+import com.example.socialmediaprojectkk.Data.UserKey
 import com.example.socialmediaprojectkk.databinding.ActivityDetailsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,15 +26,19 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var commentList: List<String>//split comments
     private lateinit var likeList: List<String>//split likes
     lateinit var likesList:ArrayList<String>//trim likes
+    lateinit var userData: UserItem
 
     lateinit var posts:PostItem
     private var primaryKey=0
     //Set username
-    private var username="eman"
+    private var username=""
+    var API= UserKey.API.publickApiKey
+    lateinit var context: Context
 
     private val apiInterface by lazy { APIClient().getClinet()?.create(APIinterface::class.java) }
 
     /*<!--------------------------------------------------------------------------------------------------!>*/
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +52,41 @@ class DetailsActivity : AppCompatActivity() {
         commentsAdapter= CommentsAdapter()
         binding.commentsRv.adapter=commentsAdapter
         primaryKey= intent.getIntExtra("id",-1)
+        context=this@DetailsActivity
 
         getPost(primaryKey)
+
+        if(API.length>12){//That means the user sign in
+            //*********************************************************************************************
+            //Get user name
+            var apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)
+            apiInterface!!.getUserData(API)?.enqueue(object :Callback<UserItem> {
+                override fun onResponse(call: Call<UserItem>, response: Response<UserItem>) {
+                    if(response.body()!=null){
+                        userData=response.body()!!
+                        binding.apply {
+                            username=userData.username
+                        }//End of binding
+                    }//end if response != null
+                }
+                override fun onFailure(call: Call<UserItem>, t: Throwable) {
+                    Toast.makeText(this@DetailsActivity, "Sorry, Something goes wrong", Toast.LENGTH_SHORT).show()
+                }
+            })
+            //******************************************************
+            binding.apply {
+                likeBtn.visibility= View.VISIBLE
+                commentEt.visibility= View.VISIBLE
+                commentBtn.visibility= View.VISIBLE
+            }
+        }//End  if(API.length>12)
+        else{//That means the user not sign in, Therefore disable comment & like
+            binding.apply {
+                likeBtn.visibility= View.INVISIBLE
+                commentEt.visibility= View.INVISIBLE
+                commentBtn.visibility= View.INVISIBLE
+            }
+        }//End of else
 
         binding.commentBtn.setOnClickListener {
             var comment = binding.commentEt.text.toString()
@@ -58,7 +99,8 @@ class DetailsActivity : AppCompatActivity() {
                 Toast.makeText(this, "The comment field must not be empty", Toast.LENGTH_LONG).show()
             }
 
-        }
+        }//End of  binding.commentBtn.setOnClickListener
+        //----------------------------------------------------------------------
 
         binding.apply {
 
@@ -103,7 +145,8 @@ class DetailsActivity : AppCompatActivity() {
                 finish()
             }
         }
-    }
+
+    }//End on create
     /*<!--------------------------------------------------------------------------------------------------!>*/
 
 
