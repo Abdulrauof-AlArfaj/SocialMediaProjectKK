@@ -54,8 +54,6 @@ class DetailsActivity : AppCompatActivity() {
         primaryKey= intent.getIntExtra("id",-1)
         context=this@DetailsActivity
 
-        getPost(primaryKey)
-
         if(API.length>12){//That means the user sign in
             //*********************************************************************************************
             //Get user name
@@ -75,13 +73,16 @@ class DetailsActivity : AppCompatActivity() {
             })
             //******************************************************
             binding.apply {
+                getPost(primaryKey)
                 likeBtn.visibility= View.VISIBLE
                 commentEt.visibility= View.VISIBLE
                 commentBtn.visibility= View.VISIBLE
+
             }
         }//End  if(API.length>12)
         else{//That means the user not sign in, Therefore disable comment & like
             binding.apply {
+                getPost(primaryKey)
                 likeBtn.visibility= View.INVISIBLE
                 commentEt.visibility= View.INVISIBLE
                 commentBtn.visibility= View.INVISIBLE
@@ -171,6 +172,11 @@ class DetailsActivity : AppCompatActivity() {
                         detailsTv.setText(posts.text)
                         commentTv.setText("${CommentHandle(posts.comments)} Comments")
                         likeTv.setText("${LikesHandle(posts.likes)} Likes")
+                        if(posts.likes.contains(username)){
+                            binding.likeBtn.setImageResource(R.drawable.like)
+                        }else{
+                            binding.likeBtn.setImageResource(R.drawable.like1)
+                        }
                     }
                     Log.d("response", "onResponse: ${posts} ")
                 }

@@ -32,12 +32,10 @@ class PostsAdapter(private var context : Context) :
         var pk = 0
         holder.binding.apply {
             nameTv.text=getItem(position).title
-            //Split likes string and store it into list
-            var likeList = getItem(position).likes.split(",")
             //Split comments string and store it into list
-            var commentList = getItem(position).comments.split(",")
-            commentTv.text = "${commentList.size} Comments  "
-            likesTv.text = "${likeList.size} Likes"
+            commentTv.text = "${getItem(position).comments.split(",").size} Comments  "
+            //Split likes string and store it into list
+            likesTv.text = "${getItem(position).likes.split(",").size} Likes"
             pk = getItem(position).id
             namePlace.setOnClickListener {
                 var postDetailsIntent= Intent(context,DetailsActivity::class.java)
