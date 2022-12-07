@@ -11,9 +11,9 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/profile"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/black"
+        android:src="@drawable/logo_kk"
+        app:civ_border_width="4dp"
+        app:civ_border_color="@color/co1"
         android:layout_marginTop="170dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Kotlin knights"
+        android:text="Kotlin Knights"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:textColor="@color/co1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kkLogo" />
@@ -52,6 +53,8 @@
             android:layout_height="40dp"
             android:ems="10"
             android:padding="10dp"
+            android:gravity="center"
+            android:textColorHint="@color/white"
             android:background="@drawable/frame_style2"
             android:inputType="textPersonName"
             android:hint="Username" />
@@ -59,6 +62,7 @@
         <EditText
             android:id="@+id/passEt"
             android:visibility="visible"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:ems="10"
@@ -66,6 +70,7 @@
             android:background="@drawable/frame_style2"
             android:layout_marginTop="8dp"
             android:hint="Password"
+            android:textColorHint="@color/white"
             android:inputType="textPassword" />
 
     </LinearLayout>
@@ -77,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoLay"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/frame_style"
         android:textSize="20sp"
@@ -92,13 +97,14 @@
         android:id="@+id/signupBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
         android:layout_marginTop="25dp"
+        android:text="Sign up"
+        android:layout_marginBottom="45dp"
         android:textColor="@color/purple_700"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <ImageView
         android:id="@+id/homeBtn"

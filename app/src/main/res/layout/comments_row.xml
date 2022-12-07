@@ -9,7 +9,7 @@
         android:id="@+id/commentLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/layout_style"
+        android:background="@drawable/layout_row"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Comments"
-            android:textSize="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
     </LinearLayout>

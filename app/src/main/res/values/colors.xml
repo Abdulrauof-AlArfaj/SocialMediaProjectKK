@@ -8,6 +8,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#C6C6C6</color>
-    <color name="red">#FF6200EE</color>
+    <color name="red">#DD0000</color>
+    <color name="colo1">#000063</color>
+
+    <color name="sky">#92cd89</color>
+    <color name="darkSky">#354b58</color>
+    <color name="colo2">#851D0257</color>
+    <color name="colo3">#858B76B8</color>
+
+    <color name="gray2">#959C9C9C</color>
+
+
+    <color name="co1">#41514e</color>
+    <color name="co5">#919F9D</color>
+    <color name="co2">#12999d</color>
+    <color name="co3">#DBD8D8</color>
+    <color name="co4">#e4f8f6</color>
+    <color name="co6">#E2E2E2</color>
 
 </resources>
