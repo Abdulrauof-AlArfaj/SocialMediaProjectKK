@@ -37,6 +37,7 @@
             android:text="Name"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:textAlignment="center" />
 
 
@@ -77,6 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Email"
             android:layout_marginTop="10dp"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textAlignment="center"/>
@@ -114,6 +116,7 @@
                     android:text="Image Url"
                     android:textSize="20sp"
                     android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textAlignment="center" />
 
@@ -141,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:text="Website"
                     android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="5dp"
                     android:textStyle="bold"
                     android:textAlignment="center" />
@@ -166,6 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:text="About"
                     android:layout_marginTop="5dp"
                     android:textStyle="bold"
@@ -205,7 +210,8 @@
             android:layout_height="wrap_content"
             android:text="Password"
             android:textSize="20sp"
-            android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textAlignment="center" />
 
@@ -245,6 +251,7 @@
             android:textSize="20sp"
             android:layout_marginTop="5dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:textAlignment="center" />
 
         <LinearLayout
@@ -298,7 +305,7 @@
         android:background="@color/gray"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -310,6 +317,12 @@
             android:layout_weight="2"
             android:text="Sign up to KK"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="25dp" />
+        <ImageView
+            android:id="@+id/homeBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/home_icon" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
