@@ -63,11 +63,12 @@ class LoginActivity : AppCompatActivity() {
                 if (userName != "" && userPassword != "") {
                     for (user in users) {
                         //passEt.setTextColor(Color.BLACK)//return the text color to black if the user change user name
-                        if (userName == user.username || userName == user.email) {
+                        if (userName == user.username || userName == user.email) {//Accept email for more flexibility of program
                             //Toast.makeText(this@LoginActivity, "Here we are to check user password", Toast.LENGTH_LONG).show()
+                            userName = user.username//So if the user enter his email, then we convert the value to user name
 
                             found = true
-                           //Try to get API key
+                            //Try to get API key
                             var API_Key=""
                             CoroutineScope(Dispatchers.IO).launch {
 
@@ -81,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
                                     withContext(Dispatchers.Main)//This to write in main layout in text view
                                     {
 
-                                         API_Key = data
+                                        API_Key = data
                                         if (API_Key != "Unable to log in"&& API_Key !=""){
                                             var intent = Intent(context, MainActivity::class.java)
                                             intent.putExtra("API_Key", API_Key)
@@ -89,10 +90,10 @@ class LoginActivity : AppCompatActivity() {
                                         }
                                         else{
                                             Toast.makeText(
-                                            this@LoginActivity,
-                                            "Some things wrong! Try to enter correct user name and password",
-                                            Toast.LENGTH_LONG
-                                        ).show()
+                                                this@LoginActivity,
+                                                "Some things wrong! Try to enter correct user name and password",
+                                                Toast.LENGTH_LONG
+                                            ).show()
                                         }//end else block
 
                                     }//end of main scope

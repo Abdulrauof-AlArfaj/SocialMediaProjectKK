@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
 import com.example.socialmediaprojectkk.Data.Post
@@ -52,9 +53,31 @@ class MainActivity : AppCompatActivity() {
                 startActivity(addpostIntent)
             }
             sinInBtn.setOnClickListener {
-                var intent= Intent(context,LoginActivity::class.java)
-                context.startActivity(intent)
+                if (sinInBtn.text.toString()=="Sign in/up"){
+                    var intent= Intent(context,LoginActivity::class.java)
+                    context.startActivity(intent)}
+                else{
+                    ApiKey=""
+                    sinInBtn.setText("Sign in/up")
+                    addPostBtn.visibility=View.INVISIBLE
+                    goToProfile.visibility=View.INVISIBLE
+                }
             }
+            goToProfile.setOnClickListener {
+                var intentP= Intent(context,ProfileActivity::class.java)
+                intentP.putExtra("ApiKey",ApiKey)
+                context.startActivity(intentP)
+            }//End  goToProfile.setOnClickListener
+        }//End of binding
+        if (ApiKey.length>20){//so the API key is available and user log in
+            binding.apply {
+                sinInBtn.setText("Sign Out")
+                addPostBtn.visibility=View.VISIBLE
+                goToProfile.visibility=View.VISIBLE
+
+            }
+
+
         }
     }
 }
