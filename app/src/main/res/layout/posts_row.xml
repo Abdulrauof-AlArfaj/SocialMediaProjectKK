@@ -50,7 +50,10 @@
             android:id="@+id/namePlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Open Thread"
+            android:text="Open Thread.."
+            android:gravity="end"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 

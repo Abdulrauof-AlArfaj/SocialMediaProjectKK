@@ -12,8 +12,8 @@
         android:background="@drawable/layout_style"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:layout_margin="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +22,7 @@
             android:id="@+id/commentsTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Post Title"
+            android:text="Comments"
             android:textSize="15dp"
             android:textStyle="bold" />
 
