@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:hint="Write your name here"
-                        />
+                        android:minHeight="48dp" />
                 </LinearLayout>
 
                 <TextView
@@ -99,35 +99,11 @@
                         android:hint="Write your email here"
 
                         android:inputType="textEmailAddress"
-                        />
+                        android:minHeight="48dp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/passTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PASSWORD"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/passLay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/layout_style2"
-                    android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/passEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:hint="Write your password here"
-                        />
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/webTv"
@@ -191,6 +167,7 @@
                                 android:layout_margin="8dp"
                                 android:hint="Write about your self here"
                                 />
+
                         </LinearLayout>
                     </ScrollView>
 
@@ -214,23 +191,15 @@
             android:layout_width="110dp"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginEnd="15dp"
             android:layout_weight="1"
             android:onClick="onClick"
             android:text="BACK"
-            android:layout_marginEnd="15dp"
             android:textAllCaps="false"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <Button
-            android:id="@+id/updateBtn"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:onClick="onClick"
-            android:text="UPDATE"
-            android:layout_marginStart="15dp"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
