@@ -29,9 +29,18 @@ class MainActivity : AppCompatActivity() {
         binding.postsRv.adapter = postAdapter
         context=this@MainActivity
         //Get API_Key:
+        if(UserKey.API.publickApiKey.length<10) {
+            try {
 
-        ApiKey= intent.getStringExtra("API_Key").toString()
-        UserKey.API.publickApiKey=ApiKey
+
+                ApiKey = intent.getStringExtra("API_Key").toString()
+                UserKey.API.publickApiKey = ApiKey
+            }catch (e:Exception){}
+        }
+        else {
+            ApiKey=UserKey.API.publickApiKey
+        }
+
         //==========================================================
 
         var apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)

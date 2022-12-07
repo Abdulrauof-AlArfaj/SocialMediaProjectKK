@@ -1,5 +1,6 @@
 package com.example.socialmediaprojectkk
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,8 +20,10 @@ class NewPostActivity : AppCompatActivity() {
     lateinit var userData: UserItem
     var userName=""
     lateinit var binding:ActivityNewPostBinding
+    lateinit var context:Context
     override fun onCreate(savedInstanceState: Bundle?) {
         API_Key= intent.getStringExtra("API_Key").toString()
+        context=this
         //Get user data
         if (API_Key.length>12){
             //*********************************************************************************************
@@ -50,6 +53,14 @@ class NewPostActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.addPostBtn.setOnClickListener {
             AddPost()
+        }
+
+        //**************************************
+        binding.apply {
+            homeBtn.setOnClickListener{
+                var intent = Intent(context, MainActivity::class.java)
+                context.startActivity(intent)
+            }
         }
 
     }

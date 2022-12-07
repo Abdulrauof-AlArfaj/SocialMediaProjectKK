@@ -87,6 +87,14 @@ class DetailsActivity : AppCompatActivity() {
                 commentBtn.visibility= View.INVISIBLE
             }
         }//End of else
+        //set Functionality to home button inorder to return to mainActivity:
+        binding.apply {
+            homeBtn.setOnClickListener{
+                var intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("API_Key", "7c03c75f97c70f851c4899fcc712fd423d05940adb5f127a693156ea1cb6d250")
+                context.startActivity(intent)
+            }
+        }
 
         binding.commentBtn.setOnClickListener {
             var comment = binding.commentEt.text.toString()

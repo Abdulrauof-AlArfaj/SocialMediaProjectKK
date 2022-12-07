@@ -1,6 +1,7 @@
 package com.example.socialmediaprojectkk
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
 
 import com.example.socialmediaprojectkk.Data.UserItem
+import com.example.socialmediaprojectkk.Data.UserKey
 import com.example.socialmediaprojectkk.databinding.ActivityMainBinding
 import com.example.socialmediaprojectkk.databinding.ActivityProfileBinding
 import retrofit2.Call
@@ -18,12 +20,12 @@ import retrofit2.Response
 class ProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfileBinding
     lateinit var context: Context
-    var ApiKey=""
+    var ApiKey= UserKey.API.publickApiKey
     lateinit var userData: UserItem
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ApiKey= intent.getStringExtra("ApiKey").toString()
+        //ApiKey= intent.getStringExtra("ApiKey").toString()
 
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -54,6 +56,12 @@ class ProfileActivity : AppCompatActivity() {
             }
         })
         //*********************************************************************************************
+        binding.apply {
+            homeBtn.setOnClickListener{
+                var intent = Intent(context, MainActivity::class.java)
+                context.startActivity(intent)
+            }
+        }
 
 
 

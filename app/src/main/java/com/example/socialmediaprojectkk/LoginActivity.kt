@@ -11,6 +11,7 @@ import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
 import com.example.socialmediaprojectkk.Data.User
 import com.example.socialmediaprojectkk.Data.UserItem
+import com.example.socialmediaprojectkk.Data.UserKey
 import com.example.socialmediaprojectkk.databinding.ActivityLoginBinding
 import kotlinx.coroutines.*
 import retrofit2.Call
@@ -21,10 +22,11 @@ import java.net.URL
 class LoginActivity : AppCompatActivity() {
     lateinit var users: ArrayList<UserItem>
     var apiKey = ""
+    lateinit var context: Context
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        var context: Context
+        context=this@LoginActivity
         var found = false
 
 
@@ -32,6 +34,13 @@ class LoginActivity : AppCompatActivity() {
         var binding: ActivityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //-------------------------------------------------
+        binding.apply {
+            homeBtn.setOnClickListener{
+                var intent = Intent(context, MainActivity::class.java)
+                context.startActivity(intent)
+            }
+        }
+        //----------------------------------------
         //Get users inorder to check if user name and password exist and match
         users = arrayListOf()
         val apiInterface = APIClient().getClinet()?.create(APIinterface::class.java)
@@ -49,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         //set action to sign up text to go to sign up activity
-        context = this@LoginActivity
+
         binding.apply {
             signupBtn.setOnClickListener {
                 var intent = Intent(context, SignupActivity::class.java)

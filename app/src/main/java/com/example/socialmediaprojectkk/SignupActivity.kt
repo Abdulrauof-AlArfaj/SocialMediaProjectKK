@@ -54,6 +54,13 @@ class SignupActivity : AppCompatActivity() {
             }
 
         })
+        //==============================================================================
+        binding.apply {
+            homeBtn.setOnClickListener{
+                var intent = Intent(context, MainActivity::class.java)
+                context.startActivity(intent)
+            }
+        }
         //===============================================================================
         binding.apply {
             signupBtn.setOnClickListener{
