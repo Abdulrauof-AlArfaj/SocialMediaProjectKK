@@ -59,6 +59,8 @@ class ProfileActivity : AppCompatActivity() {
         binding.apply {
             homeBtn.setOnClickListener{
                 var intent = Intent(context, MainActivity::class.java)
+                UserKey.API.publickApiKey=ApiKey
+               // intent.putExtra("API_Key",ApiKey)
                 context.startActivity(intent)
             }
         }
