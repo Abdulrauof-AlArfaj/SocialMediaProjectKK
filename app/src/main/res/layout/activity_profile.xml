@@ -33,7 +33,7 @@
             android:layout_marginTop="10dp"
 
             app:civ_border_width="2dp"
-            app:civ_border_color="@color/black"/>
+            app:civ_border_color="@color/co1"/>
 
         <ScrollView
             android:layout_width="match_parent"
