@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/layout_style3"
+
     >
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -102,6 +104,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Sign up"
+        android:textStyle="bold"
+        android:textSize="17sp"
         android:layout_marginBottom="45dp"
         android:textColor="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="parent"
