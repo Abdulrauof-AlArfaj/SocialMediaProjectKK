@@ -9,10 +9,10 @@
         android:id="@+id/postLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/layout_style"
+        android:background="@drawable/layout_row"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,7 @@
             android:id="@+id/nameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Post Title"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 
@@ -37,13 +36,14 @@
                 android:id="@+id/commentTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="comments - " />
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/likesTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Likes" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
