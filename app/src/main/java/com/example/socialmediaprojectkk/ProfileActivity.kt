@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.socialmediaprojectkk.API.APIClient
 import com.example.socialmediaprojectkk.API.APIinterface
-
+import com.example.socialmediaprojectkk.databinding.*
 import com.example.socialmediaprojectkk.Data.UserItem
 import com.example.socialmediaprojectkk.Data.UserKey
-import com.example.socialmediaprojectkk.databinding.ActivityMainBinding
-import com.example.socialmediaprojectkk.databinding.ActivityProfileBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +21,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var context: Context
     var ApiKey= UserKey.API.publickApiKey
     lateinit var userData: UserItem
+    lateinit var imgUrl: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +45,12 @@ class ProfileActivity : AppCompatActivity() {
                         emailEt.setText(userData.email)
                         webEt.setText(userData.website)
                         aboutEt.setText(userData.about)
+                        imgUrl = userData.image
+
+                        if(imgUrl.isNotEmpty()) {
+                            Glide.with(this@ProfileActivity).load(imgUrl).into(binding.profileImage)
+                        }
+
 
                     }//End of binding
 
@@ -64,6 +70,7 @@ class ProfileActivity : AppCompatActivity() {
                 context.startActivity(intent)
             }
         }
+
 
 
 
