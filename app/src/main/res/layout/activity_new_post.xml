@@ -64,6 +64,7 @@
                                 android:layout_margin="20dp"
                                 android:textSize="20dp"
                                 android:textStyle="bold"
+                                android:textColor="@color/co1"
                                 android:hint="Write your title here" />
                         </LinearLayout>
                     </ScrollView>
@@ -106,7 +107,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:textSize="18dp"
-                        android:hint="Write your post here" />
+                        android:hint="Write your post here"
+                        android:textColor="@color/co1"
+                        />
                 </LinearLayout>
             </ScrollView>
 

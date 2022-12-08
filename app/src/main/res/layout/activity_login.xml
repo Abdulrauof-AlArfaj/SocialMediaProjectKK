@@ -54,6 +54,7 @@
             android:ems="10"
             android:padding="10dp"
             android:gravity="center"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:background="@drawable/frame_style2"
             android:inputType="textPersonName"
@@ -70,6 +71,7 @@
             android:background="@drawable/frame_style2"
             android:layout_marginTop="8dp"
             android:hint="Password"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:inputType="textPassword" />
 
@@ -79,6 +81,7 @@
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:text="Login"
+        android:textColor="@color/co1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoLay"

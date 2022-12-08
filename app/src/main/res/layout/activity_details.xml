@@ -43,7 +43,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        android:text="Title here" />
+                        android:text="Title here"
+                        android:textColor="@color/co1"
+                        />
                 </LinearLayout>
             </ScrollView>
 
@@ -71,7 +73,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        android:text="Write your post here" />
+                        android:text="Write your post here"
+                        android:textColor="@color/co1"
+                        />
                 </LinearLayout>
             </ScrollView>
 
@@ -147,6 +151,7 @@
             android:layout_weight="1"
             android:background="@drawable/frame_style"
             android:padding="10dp"
+            android:textColor="@color/co1"
             android:layout_marginRight="5dp"
             android:inputType="textPersonName"
             android:hint="Write a comment" />
@@ -158,6 +163,7 @@
             android:text="Leave\n comment"
             android:layout_marginLeft="5dp"
             android:background="@drawable/frame_style"
+            android:textColor="@color/co1"
 
             />
     </LinearLayout>

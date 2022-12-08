@@ -71,6 +71,7 @@
                         android:layout_height="40dp"
                         android:layout_margin="9dp"
                         android:padding="5dp"
+                        android:textColor="@color/co1"
                         android:gravity="center"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
@@ -102,6 +103,7 @@
                         android:layout_height="40dp"
                         android:layout_margin="9dp"
                         android:padding="5dp"
+                        android:textColor="@color/co1"
                         android:gravity="center"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
@@ -134,6 +136,7 @@
                         android:layout_margin="9dp"
                         android:padding="5dp"
                         android:gravity="center"
+                        android:textColor="@color/co1"
                         android:background="@drawable/frame_style"
                         android:textAlignment="center"
                         android:text=""
@@ -178,6 +181,7 @@
                                 android:background="@drawable/frame_style"
                                 android:textAlignment="center"
                                 android:text=""
+                                android:textColor="@color/co1"
                                 />
                         </LinearLayout>
                     </ScrollView>
